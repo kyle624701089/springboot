@@ -1,0 +1,8 @@
+my:
+  name: kyle
+  age: 26
+  sex: male
+  uuid: ${random.uuid}
+  max: ${random.max(10)}
+  value: ${random.value}
+  greeting: i'm ${my.name},i'm ${my.age} years old
