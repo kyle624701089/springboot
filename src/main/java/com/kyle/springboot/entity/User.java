@@ -1,30 +1,18 @@
 package com.kyle.springboot.entity;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
-/**
- * 通过ConfigurationProperties注解读取application.yml文件中以my前缀开头的配置信息,并映射到User类的字段
- * @author kyle
- * @create 2018 - 03 - 16 14:46
- */
-@ConfigurationProperties(prefix = "my")
-@Component
 public class User {
-    private String uuid;
+    private Integer id;
     private String name;
-    private Integer age;
     private String sex;
-    private String max;
-    private String value;
-    private String greeting;
+    private Integer age;
+    private String hobby;
 
-    public String getUuid() {
-        return uuid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -35,14 +23,6 @@ public class User {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public String getSex() {
         return sex;
     }
@@ -51,40 +31,30 @@ public class User {
         this.sex = sex;
     }
 
-    public String getMax() {
-        return max;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setMax(String max) {
-        this.max = max;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
-    public String getValue() {
-        return value;
+    public String getHobby() {
+        return hobby;
     }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public String getGreeting() {
-        return greeting;
-    }
-
-    public void setGreeting(String greeting) {
-        this.greeting = greeting;
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "uuid='" + uuid + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
-                ", age=" + age +
                 ", sex='" + sex + '\'' +
-                ", max='" + max + '\'' +
-                ", value='" + value + '\'' +
-                ", greeting='" + greeting + '\'' +
+                ", age=" + age +
+                ", hobby='" + hobby + '\'' +
                 '}';
     }
 }

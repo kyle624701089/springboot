@@ -6,3 +6,7 @@ my:
   max: ${random.max(10)}
   value: ${random.value}
   greeting: i'm ${my.name},i'm ${my.age} years old
+
+spring:
+  profiles:
+    active: dev
