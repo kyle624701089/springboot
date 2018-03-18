@@ -1,39 +1,40 @@
 package com.kyle.springboot.service.impl;
 
-import com.kyle.springboot.dao.UserDao;
+import com.kyle.springboot.dao.UserMapper;
 import com.kyle.springboot.entity.User;
 import com.kyle.springboot.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
+//@MapperScan(basePackages = {"com.kyle.springboot.dao"},sqlSessionFactoryRef = "sqlSessionFactory")
 public class UserServiceImpl implements IUserService {
-    @Autowired
-    private UserDao userDao;
+    @Resource
+    private UserMapper userMapper;
     @Override
     public void insertUser(User user) {
-        userDao.insertUser(user);
+        userMapper.insertUser(user);
     }
 
     @Override
     public void delById(Integer id) {
-        userDao.delById(id);
+        userMapper.delById(id);
     }
 
     @Override
     public void updateUser(User user) {
-        userDao.updateUser(user);
+        userMapper.updateUser(user);
     }
 
     @Override
     public User findOneUserById(Integer id) {
-        return userDao.findOneUserById(id);
+        return userMapper.findOneUserById(id);
     }
 
     @Override
     public List<User> findListUser() {
-        return userDao.findListUser();
+        return userMapper.findListUser();
     }
 }

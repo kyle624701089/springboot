@@ -29,7 +29,7 @@ public class PersonController {
     @Autowired
     private Person person;
 
-    @RequestMapping("/getUser")
+    @RequestMapping("/getPerson")
     public String getUser() {
 //        return name+":"+age+":"+male;
         return person.toString();
