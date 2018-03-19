@@ -1,37 +1,53 @@
 package com.kyle.springboot.mvc;
 
-import com.kyle.springboot.entity.Person;
+import com.kyle.springboot.entity.User;
+import com.kyle.springboot.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-/**
- * Person
- * @author kyle
- * @create 2018 - 03 - 16 14:24
- */
+import java.util.List;
+
 @RestController
-@EnableConfigurationProperties({Person.class})
-public class PersonController {
-    /**
-     * 使用${}的方式读取application.yml配置文件中的信息，springboot会默认读取application.yml文件配置
-     */
-
-    @Value("${my.name}")
-    private String name;
-    @Value("${my.age}")
-    private Integer age;
-    @Value("${my.sex}")
-    private String male;
-
+@RequestMapping("/user")
+public class UserController {
     @Autowired
-    private Person person;
+    private IUserService userService;
 
-    @RequestMapping("/getUser")
-    public String getPerson() {
-//        return name+":"+age+":"+male;
-        return person.toString();
+    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    public User getOneUserById(@PathVariable("id")Integer id){
+        return userService.findOneUserById(id);
+    }
+
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    public List<User> getListUser(){
+        return userService.findListUser();
+    }
+
+    @RequestMapping(value = "/{id}",method = RequestMethod.PUT)
+    public String updateUser(@PathVariable("id")Integer id, @RequestParam(value = "name")String name,@RequestParam(value = "age")Integer age){
+        User user = userService.findOneUserById(id);
+        if (user != null){
+            user.setName(name);
+            user.setAge(age);
+            userService.updateUser(user);
+            return "success";
+        }else {
+            return "failed";
+        }
+    }
+
+    @RequestMapping(value = "",method = RequestMethod.POST)
+    public String addUser(@RequestParam(value = "name")String name,@RequestParam(value = "age")Integer age,@RequestParam(value = "sex")String sex,@RequestParam(value = "hobby")String hobby){
+        try {
+            User user = new User();
+            user.setName(name);
+            user.setAge(age);
+            user.setSex(sex);
+            user.setHobby(hobby);
+            userService.insertUser(user);
+        }catch (Exception e){
+            return "failed";
+        }
+        return "success";
     }
 }

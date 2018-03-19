@@ -4,7 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * 通过ConfigurationProperties注解读取application.yml文件中以my前缀开头的配置信息,并映射到User类的字段
+ * 通过ConfigurationProperties注解读取application.yml文件中以my前缀开头的配置信息,并映射到Person类的字段
  * @author kyle
  * @create 2018 - 03 - 16 14:46
  */
@@ -77,7 +77,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Person{" +
                 "uuid='" + uuid + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +
