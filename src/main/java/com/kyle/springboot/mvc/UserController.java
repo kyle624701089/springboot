@@ -19,7 +19,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public List<User> getListUser(){
+    public List<User> getListUser() throws Exception{
         return userService.findListUser();
     }
 
@@ -35,8 +35,8 @@ public class UserController {
             return "failed";
         }
     }
-
-    @RequestMapping(value = "",method = RequestMethod.POST)
+    
+   @RequestMapping(value = "",method = RequestMethod.POST)
     public String addUser(@RequestParam(value = "name")String name,@RequestParam(value = "age")Integer age,@RequestParam(value = "sex")String sex,@RequestParam(value = "hobby")String hobby){
         try {
             User user = new User();

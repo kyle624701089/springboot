@@ -4,8 +4,18 @@ import com.kyle.springboot.entity.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+
 @Mapper
 public interface UserMapper {
+    /**
+     * @Title: com.kyle.springboot.dao.UserMapper
+     * @param:
+     * @return:
+     * @description:
+     * @author: kyle
+     * @date: 2018/3/19 9:56
+     * @throws:
+     */
     @Insert("insert into user(name,age,sex,hobby) values(#{name},#{age},#{sex},#{hobby})")
     void insertUser(User user);
 
