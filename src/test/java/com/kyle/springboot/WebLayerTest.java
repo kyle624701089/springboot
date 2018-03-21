@@ -1,11 +1,13 @@
 package com.kyle.springboot;
 
 import com.kyle.springboot.mvc.DocAPIController;
+import com.kyle.springboot.mvc.UserController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -17,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(DocAPIController.class)
+@WebMvcTest(value = {DocAPIController.class,UserController.class})
 @AutoConfigureRestDocs(outputDir = "target/snippets")
 public class WebLayerTest {
 
@@ -30,4 +32,12 @@ public class WebLayerTest {
                 .andExpect(content().string(containsString("Hello World")))
                 .andDo(document("home"));
     }
+
+    @Test
+    public void userDoc() throws Exception{
+        this.mockMvc.perform(get("/user/greeting")).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("name")))
+                .andDo(document("user"));
+    }
+
 }
