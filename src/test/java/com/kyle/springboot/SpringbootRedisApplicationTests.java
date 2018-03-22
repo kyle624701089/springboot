@@ -33,8 +33,8 @@ public class SpringbootRedisApplicationTests {
     public static Logger logger= LoggerFactory.getLogger(SpringbootRedisApplicationTests.class);
     @Autowired
     private RedisDao redisDao;
-    @Resource
-    private UserMapper userMapper;
+//    @Resource
+//    private UserMapper userMapper;
     @Autowired
     private StringRedisTemplate template;
 
@@ -48,12 +48,13 @@ public class SpringbootRedisApplicationTests {
 
     @Test
     public void testRedisDaoForList(){
-        List<User> listUser = userMapper.findListUser();
-        ListOperations<String, String> listOperations = redisDao.setRedisList(listUser);
-        logger.info(listOperations.range("name",0L,5L).toString());
+//        List<User> listUser = userMapper.findListUser();
+//        ListOperations<String, String> listOperations = redisDao.setRedisList(listUser);
+//        logger.info(listOperations.range("name",0L,5L).toString());
 //        ListOperations<String, String> opsForList = template.opsForList();
 //        List<String> pricess = opsForList.range("pricess", 0, 5);
 //        logger.info(pricess.toString());
-
+        redisDao.sendMessage();
+        logger.info("redis消息发送了...");
     }
 }

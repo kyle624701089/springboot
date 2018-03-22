@@ -52,6 +52,10 @@ public class RedisDao {
         return opsForValue.get(key);
     }
 
+    public void sendMessage(){
+        template.convertAndSend("chat","消息从RedisTemplate发送出去了....");
+    }
+
     /**
      * @author: kyle
      * @date: 2018/3/20 14:08

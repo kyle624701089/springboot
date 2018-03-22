@@ -9,5 +9,13 @@ import com.kyle.springboot.entity.Book;
  * @Modified By:
  */
 public interface BookRepository {
+    /**
+     * @author: kyle
+     * @date: 2018/3/22 9:52
+     * @description: 通过id查找对应book
+     * @param: [id]
+     * @return: com.kyle.springboot.entity.Book
+     * @throws:
+     */
     Book getById(Long id);
 }
