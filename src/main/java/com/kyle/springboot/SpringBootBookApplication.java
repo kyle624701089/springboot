@@ -1,4 +1,4 @@
-package com.kyle.springboot.dao;/**
+package com.kyle.springboot;/**
  * @Author: kyle
  * @Description:
  * @Date: Created in 11:17 2018/3/22
@@ -7,7 +7,6 @@ package com.kyle.springboot.dao;/**
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 
 /**
  *

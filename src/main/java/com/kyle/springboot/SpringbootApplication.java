@@ -3,6 +3,7 @@ package com.kyle.springboot;
 import com.kyle.springboot.entity.Receiver;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -29,6 +30,7 @@ import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
  * @throws:
  */
 @SpringBootApplication
+@EnableAutoConfiguration
 public class SpringbootApplication {
 
 	public static void main(String[] args) throws Exception{
