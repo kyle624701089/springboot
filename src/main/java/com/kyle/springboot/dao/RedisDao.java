@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  *@author kyle
  *@create 2018 - 03 - 20 11:34
  */
-@Repository
+@Component
 public class RedisDao {
 
     @Autowired
